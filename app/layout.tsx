@@ -1,8 +1,25 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import type { Metadata } from "next";
+import Header from "../components/assets/Header";
+import localfont from '@next/font/local';
+import SmoothScoll from "../components/assets/SmoothScoll"
+
+const neue = localfont({
+  src: [
+    { path: './fonts/ppneuemontreal-bold.woff2', weight: 'bold', style: 'normal' },
+    { path: './fonts/ppneuemontreal-semibolditalic.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/ppneuemontreal-medium.woff2', weight: '500', style: 'italic' },
+    { path: './fonts/ppneuemontreal-book.woff2', weight: '300', style: 'normal' },
+    { path: './fonts/ppneuemontreal-italic.woff2', weight: '400', style: 'italic' },
+    { path: './fonts/ppneuemontreal-thin.woff2', weight: '200', style: 'italic' },
+  ],
+});
+const ibm = localfont({
+  src: [
+    { path: './fonts/IBMPlexMono-SemiBold.woff2', weight: '600', style: 'normal' },
+  ],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,12 +28,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${neue.className}${ibm.className} antialiased`}>
+        < SmoothScoll>
+          {/* <Footer /> */}
+          <Header />
+          {children}
+
+        </SmoothScoll>
+      </body>
     </html>
   );
 }

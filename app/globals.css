@@ -6,8 +6,172 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --f-color: #49EB32;
+  --f-light: #B3D1AE;
+  --b-color: #0F0F0F;
+  --white: #FFFFFF;
+  --font-neue: 'Neue', sans-serif;
+  --font-ibm: 'ibm', sans-serif;
 }
 
+.f-color {
+  background-color: var(--f-color);
+}
+body{
+  background-color: var(--b-color);
+  -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    transition: opacity, background, transform, filter;
+
+    -webkit-tap-highlight-color: transparent;
+}
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide number input arrows on Firefox */
+.no-arrows[type="number"] {
+  -moz-appearance: textfield;
+}
+/* styles.css */
+
+.button {
+  padding: 0.5rem 1em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: var(--f-color);
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.3s;
+  color: var(--b-color);
+  box-shadow: 0px 0px 34px rgba(73, 235, 50, 0.48);
+}
+.button-2 {
+  background-color: #3F3F3F;
+  border:1px solid var(--f-color);
+  color: var(--f-color);
+}
+.button-2:hover{
+  background-color: var(--f-color);
+  color: var(--b-color);
+}
+.button:hover{
+    background: #48eb32be;
+}
+
+/* width */
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+  background-color: var(--f-color);
+  position: relative;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--b-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--f-color);
+  position: absolute;
+  bottom: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-family: var(--font-neue);
+  margin: 0px;
+  line-height: 100%;
+  color: var(--white);
+}
+
+h1 {
+  font-size: 4.5rem;
+  text-transform: inherit;
+}
+h1 span{
+  font-size: 4.5rem;
+  text-transform: inherit;
+}
+
+
+h2 {
+  font-size: 3.5rem;
+}
+h2 span{
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p,
+span {
+  font-size: 1rem;
+  color: var(--white);
+}
+.radial-color {
+  animation: subtleMove 8s ease-in-out infinite;
+  background-color: var(--f-color);
+    opacity: 0.45;
+
+    filter: blur(158px);
+  }
+@keyframes subtleMove {
+
+  0%,
+  100% {
+    transform: translateX(-45px) translateY(-45px) scale(1);
+  }
+
+  25% {
+    transform: translateX(45px) translateY(45px) scale(1.05);
+  }
+
+  37.5% {
+    transform: translateX(20px) translateY(90px) scale(1.2);
+  }
+
+  50% {
+    transform: translateX(45px) translateY(20px) scale(1);
+  }
+
+  62.5% {
+    transform: translateX(-64px) translateY(-20px) scale(1.2);
+  }
+
+  75% {
+    transform: translateX(-10px) translateY(-30px) scale(1.0);
+  }
+
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -15,24 +179,41 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+.cursor {
+
+  color: var(--f-color)
+}
+.hide-scrollbar {
+  overflow: hidden;
+}
+.animatedChar {
+  color: var(--f-color);
+  font-family: var(--font-ibm);
+}
 html,
 body {
   height: 100%;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: var(--font-neue);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.reverse-scroll {
+  transform: scaleY(-1);
+}
+
+.reverse-scroll>* {
+  transform: scaleY(-1);
+}
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+  padding: 100px 50px;
 }
