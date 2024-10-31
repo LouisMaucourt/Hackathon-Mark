@@ -13,7 +13,7 @@ const VideoThree = () => {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 0.8 }
         );
 
         if (videoRef.current) {
@@ -26,7 +26,7 @@ const VideoThree = () => {
     }, []);
 
     return (
-        <section className='video relative h-screen w-full object-contain' id="presentation" ref={videoRef}>
+        <section className='video relative w-screen h-full object-contain' id="presentation" ref={videoRef}>
             {isVideoVisible && (
                 <video
                     className='absolute top-0 left-0 w-full h-5/6'
