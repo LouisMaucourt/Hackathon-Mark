@@ -20,7 +20,7 @@ const ibm = localfont({
   src: [
     {
       path: './fonts/IBMPlexMono-SemiBold.woff2',
-      weight: '600',
+      weight: '400',
       style: 'normal'
     }
   ],
