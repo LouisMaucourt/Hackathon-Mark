@@ -1,4 +1,3 @@
-"use client";
 import { useGLTF, useScroll } from '@react-three/drei';
 import { forwardRef, useLayoutEffect, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
@@ -47,6 +46,9 @@ const Proto = forwardRef((props, ref) => {
         </group>
     );
 });
+
+// Set display name to satisfy ESLint
+Proto.displayName = 'Proto';
 
 useGLTF.preload('/proto.glb');
 export { Proto };
