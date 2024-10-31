@@ -14,6 +14,7 @@ import ProductImage from "../components/ProductImage"
 import CardText from "../components/CardText"
 import Footer from "../components/assets/Footer"
 import PreLoader from "../components/PreLoader"
+import CustomCursor from "../components/CustomCursor"
 
 
 
@@ -67,50 +68,50 @@ const slides = [
   {
     src: "/adaptateur.webp",
     alt: "Slide 2",
-    titre: `Adaptateur exclusif pour UniCharge xxxxxxxxxxxx`,
-    caption: "Slide 2 Caption",
+    titre: `UniCharge`,
+    caption: "Rechargez discrètement, sans laisser de traces derrière vous.",
     buttonLink: "https://www.reddit.com/r/france/comments/igauds/recherche_groupe_platiste_fran%C3%A7ais/"
   },
   {
     src: "/clef-usb.webp",
-    alt: "Slide 2",
-    titre: `Adaptwebpateur exclusif pour UniCharge xxxxxxxxxxxx`,
-    caption: "Slide 2 Caption",
+    alt: "Clé USB",
+    titre: `Clé USB`,
+    caption: "Stockez tout ce qu’ils veulent cacher.",
     buttonLink: "https://www.reddit.com/r/france/comments/igauds/recherche_groupe_platiste_fran%C3%A7ais/"
   },
   {
     src: "/voyelles.webp",
-    alt: "Slide 2",
-    titre: `Adaptwebpateur exclusif pour UniCharge xxxxxxxxxxxx`,
-    caption: "Slide 2 Caption",
+    alt: "Pack voyelle",
+    titre: `Pack voyelle`,
+    caption: "Les lettres qu'ils ne veulent pas que vous les utilisiez.",
     buttonLink: "https://www.reddit.com/r/france/comments/igauds/recherche_groupe_platiste_fran%C3%A7ais/"
   },
   {
     src: "/consonnes.webp",
     alt: "Slide 2",
-    titre: `Adaptwebpateur exclusif pour UniCharge xxxxxxxxxxxx`,
-    caption: "Slide 2 Caption",
+    titre: `Pack consonne`,
+    caption: "Les lettres qu'ils ne veulent pas que vous les utilisiez.",
     buttonLink: "https://www.reddit.com/r/france/comments/igauds/recherche_groupe_platiste_fran%C3%A7ais/"
   },
   {
     src: "/gant.webp",
     alt: "Slide 2",
-    titre: `Adaptateur exclusif pour UniCharge xxxxxxxxxxxx`,
-    caption: "Slide 2 Caption",
+    titre: `Gant à ventouse`,
+    caption: "Manipulez vos appareils sans être détecté.",
     buttonLink: "https://www.reddit.com/r/france/comments/igauds/recherche_groupe_platiste_fran%C3%A7ais/"
   },
   {
     src: "/housse.webp",
     alt: "Slide 2",
-    titre: `Adaptateur exclusif pour UniCharge xxxxxxxxxxxx`,
-    caption: "Slide 2 Caption",
+    titre: `Housse Anti-Onde`,
+    caption: "Protection ultime, zéro interférences externes.",
     buttonLink: "https://www.reddit.com/r/france/comments/igauds/recherche_groupe_platiste_fran%C3%A7ais/"
   },
   {
     src: "/packshots.webp",
     alt: "Slide 2",
-    titre: `Adaptateur exclusif pour UniCharge xxxxxxxxxxxx`,
-    caption: "Slide 2 Caption",
+    titre: `Uniconnect`,
+    caption: "Adaptateur exclusif pour UniCharge",
     buttonLink: "https://www.reddit.com/r/france/comments/igauds/recherche_groupe_platiste_fran%C3%A7ais/"
   },
 ]
@@ -139,15 +140,16 @@ export default function Home() {
   return (
     <main className="h-full">
       <div className="panelCon">
+        <CustomCursor></CustomCursor>
         <PreLoader />
         <Video id="pane5" />
-        <ImageCarousel id="" slides={slidesImageCentre} />
+        <ImageCarousel id="" slides={products} />
         <VideoThree />
         {/* <Carousel id="caracteristiques" slides={slides} /> */}
         <CenterImageCarousel slides={slides} />
         <CardText></CardText>
         <ProductImage />
-        <ProductCarousel slides={products} />
+        <ProductCarousel slides={slidesImageCentre} />
         <Footer />
       </div>
     </main>

@@ -26,7 +26,7 @@ const Video = () => {
                             <h3>MarkBook</h3>
                         </div>
 
-                        <h3>Prix 00000</h3>
+                        <h4 className='!normal-case'>Prix 31.00 BTC</h4>
                     </div>
                 </div>
             </div>

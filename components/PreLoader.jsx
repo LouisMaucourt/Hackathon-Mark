@@ -2,14 +2,16 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import CustomCursor from "./CustomCursor";
 
 const PreLoader = ({ onClose }) => {
   const [inputValues, setInputValues] = useState(["", "", ""]);
   const [isVisible, setIsVisible] = useState(true);
   const [displayedText, setDisplayedText] = useState('');
   const textRef = useRef(null);
+  const inputRefs = [useRef(null), useRef(null), useRef(null)];
 
-  const fullText = "Bienvenue sur notre site, entrez le code secret...";
+  const fullText = "Entrez votre code secret...";
 
   useEffect(() => {
     let timeouts = [];
@@ -36,7 +38,6 @@ const PreLoader = ({ onClose }) => {
   }, []);
 
   useEffect(() => {
-    // Ajouter ou retirer la classe du body pour masquer la scrollbar
     if (isVisible) {
       document.body.classList.add("hide-scrollbar");
     } else {
@@ -49,10 +50,24 @@ const PreLoader = ({ onClose }) => {
   }, [isVisible]);
 
   const handleChange = (index) => (event) => {
-    const newValue = parseFloat(event.target.value) || 0;
-    const newInputValues = [...inputValues];
-    newInputValues[index] = newValue;
-    setInputValues(newInputValues);
+    const value = event.target.value;
+    if (value.length <= 1) { // Accepte un seul chiffre
+      const newInputValues = [...inputValues];
+      newInputValues[index] = value;
+      setInputValues(newInputValues);
+
+      // Si un chiffre est entré et qu'il y a une case suivante, focus dessus
+      if (value && index < inputRefs.length - 1) {
+        inputRefs[index + 1].current.focus();
+      }
+    }
+  };
+
+  const handleKeyDown = (index) => (event) => {
+    if (event.key === 'Backspace' && !inputValues[index] && index > 0) {
+      // Si backspace sur case vide, retourne à la case précédente
+      inputRefs[index - 1].current.focus();
+    }
   };
 
   const animatePreLoaderOut = () => {
@@ -77,9 +92,10 @@ const PreLoader = ({ onClose }) => {
 
   return (
     <section className="fixed inset-0 z-50 bg-[var(--b-color)] flex items-center justify-center h-screen overflow-hidden">
+      <CustomCursor></CustomCursor>
       <div className="preloader-container flex flex-col items-center gap-8">
         <Image src="/logo-green.png" width={200} height={200} alt="Logo" className="mb-6" priority />
-        <p ref={textRef} className="text-xl font-medium min-h-[2em] text-green-500">
+        <p ref={textRef} className="text-xl font-medium min-h-[2em] text-[var(--f-color)]">
           {displayedText}
           <span className="animate-pulse">|</span>
         </p>
@@ -88,11 +104,15 @@ const PreLoader = ({ onClose }) => {
             {inputValues.map((value, index) => (
               <input
                 key={index}
+                ref={inputRefs[index]}
                 type="number"
                 value={value}
                 onChange={handleChange(index)}
-                className="border-none text-[var(--f-color)] text-3xl bg-[#252723] w-16 h-24 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--f-color)] transition-all no-arrows"
+                onKeyDown={handleKeyDown(index)}
+                className={`border-2 text-[var(--f-color)] text-3xl bg-[#252723] w-16 h-24 text-center rounded-md focus:outline-none focus:ring-0 transition-all no-arrows ${value ? 'border-[var(--f-color)]' : 'border-transparent'
+                  } focus:border-[var(--f-color)]`}
                 min="0"
+                max="9"
                 required
               />
             ))}

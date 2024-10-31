@@ -27,9 +27,12 @@ const Header: React.FC = () => {
     const links = ['presentation', 'caracteristiques', 'accessoires'];
 
     return (
-        <header className="z-50 w-screen fixed bottom-2">
-            <nav className="rounded-2xl bg-[rgba(37,39,35,0.8)] py-2 px-4 mx-6 flex justify-between items-center">
-                <Image src="/logo-mark.png" width={85} height={35} alt="logo-mark" />
+        <header className="z-40 w-screen fixed bottom-2 ">
+            <nav className="rounded-2xl bg-[rgba(37,39,35,0.8)] py-2 px-4 mx-6 flex justify-between items-center border border-[var(--f-color)] shadow-[0_0_6px_var(--f-color)]">
+                <Link href="/">
+                    <Image src="/logo-mark.png" width={85} height={35} alt="logo-mark" />
+                </Link>
+
                 <ul className="flex gap-12 items-center text-[var(--white)]">
                     {links.map((section) => (
                         <li key={section}>

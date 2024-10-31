@@ -5,7 +5,7 @@ import Button from './assets/Button';
 import RadialColor from './assets/RadialColor';
 import WriteText from './assets/WriteText';
 
-const ProductCarousel = ({ slides, autoSlideInterval = 5000 }) => {
+const ProductCarousel = ({ slides, autoSlideInterval = 3000 }) => {
     const [curr, setCurr] = useState(0);
 
     const prev = () => {
@@ -26,7 +26,7 @@ const ProductCarousel = ({ slides, autoSlideInterval = 5000 }) => {
             <RadialColor top="100px" left="0px" />
 
             <div className="overflow-hidden container !pb-10">
-                <div className='flex justify-between'>
+                <div className='flex justify-between items-center'>
                     <WriteText
                         normalText="MarkBook"
                         animatedText="Professionel."

@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import RadialColor from './assets/RadialColor';
 import WriteText from './assets/WriteText';
 
-const ImageCarousel = ({ slides, autoSlideInterval = 5000 }) => {
+const ImageCarousel = ({ slides, autoSlideInterval = 3000 }) => {
     const [curr, setCurr] = useState(0);
 
     const prev = () => {
