@@ -26,7 +26,7 @@ const ImageCarousel = ({ slides, autoSlideInterval = 3000 }) => {
             <div className="overflow-hidden container !pr-0">
                 <WriteText
                     normalText="Vérités"
-                    animatedText="Caché."
+                    animatedText="Cachées."
                 />
                 <div
                     className="flex transition-transform duration-500 ease-in-out"
@@ -45,7 +45,7 @@ const ImageCarousel = ({ slides, autoSlideInterval = 3000 }) => {
                                 <img
                                     src={slide.src}
                                     alt={slide.alt}
-                                    className="w-5/6 h-[80vh] object-cover rounded-lg"
+                                    className="w-5/6 h-[80vh] object-contain rounded-lg"
                                 />
                             </div>
                         </div>

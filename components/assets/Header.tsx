@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                             </Link>
                         </li>
                     ))}
-                    <Button href="/">ee</Button>
+                    <Button href="/">Acheter</Button>
                 </ul>
                 <ul className="flex gap-2 items-center">
 

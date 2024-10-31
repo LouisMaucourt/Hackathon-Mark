@@ -13,6 +13,7 @@
   --font-neue: 'Neue', sans-serif;
   --font-ibm: 'ibm', sans-serif;
 }
+
 ::selection {
   background-color: var(--f-color);
   /* Remplace #00ff00 par le code de ton vert */
